@@ -1,0 +1,61 @@
+
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/todos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+ 
+  <div *ngIf="profile">
+    <h2>Profile Information</h2>
+    <ion-item lines="none">
+      <ion-label position="stacked">
+        <h4 style="font-size: 22px;font-weight: 500;">Name</h4>
+      </ion-label>
+      <ion-input value="{{ profile.displayName }}" readonly></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">
+        <h4 style="font-size: 22px;font-weight: 500;">Phone</h4> </ion-label>
+      <ion-input value="+2{{ profile.username }}" readonly>
+        <ion-icon slot="end" name="copy-outline" style="color: blueviolet;"></ion-icon>
+      </ion-input>
+     
+
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">
+        <h4 style="font-size: 22px;font-weight: 500;">Level</h4></ion-label>
+      <ion-input value="{{ profile.level }}" readonly></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">
+        <h4 style="font-size: 22px;font-weight: 500;">Years of Experience</h4></ion-label>
+      <ion-input value="{{ profile.experienceYears }}" readonly></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">
+        <h4 style="font-size: 22px;font-weight: 500;">Location</h4></ion-label>
+      <ion-input value="{{ profile.address }}" readonly></ion-input>
+    </ion-item>>
+  </div>
+  <div *ngIf="!profile">
+    <h2>Loading profile information...</h2>
+  </div>
+  <ion-button expand="block" color="tertiary" class="add-task-button" (click)="todosPage()">
+  todo
+  </ion-button>
+</ion-content>
+
+
+
+

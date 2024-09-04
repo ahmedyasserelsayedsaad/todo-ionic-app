@@ -1,0 +1,40 @@
+ion-content {
+    --background: #f8f9fa; 
+  }
+  
+  ion-toolbar {
+    --background: #6200ea; 
+    --color: white; 
+  }
+  ion-title {
+    font-weight: bold;
+   
+  }
+  
+  ion-item {
+    --background: rgba(108, 105, 105, 0.166);
+    border-radius: 8px;
+    
+    margin-bottom: 16px;
+    color: #6a696b;
+  }
+  ion-list{
+    
+    margin-top: 30px;
+  }
+  h2{
+    color: #6200ea;
+    font-family: cursive;
+    font-weight: 600;
+    margin-bottom: 27px;
+  }
+  ion-label{
+    font-size: 30px;
+  }
+
+  ion-input{
+    font-size: 20px;
+    font-weight: bolder;
+    text-transform: capitalize;
+
+  }

@@ -1,0 +1,80 @@
+
+
+<ion-content class="ion-padding">
+
+  <ion-row>
+    <ion-col>
+      <ion-img src="../../assets/img/imag2.jpeg"></ion-img>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h1 style="color: rgb(22, 21, 21); font-weight: bolder; font-family: cursive;">Register</h1>
+    </ion-col>
+  </ion-row>
+
+  <form [formGroup]="form" (ngSubmit)="register()">
+    <ion-item lines="none">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="displayName"></ion-input>
+    </ion-item>
+    <div *ngIf="form.get('displayName')?.hasError('required') && form.get('displayName')?.touched" class="error-message">
+      Name is required
+    </div>
+  
+    <ion-item lines="none">
+      <ion-label position="stacked">Phone Number</ion-label>
+      <ion-input type="tel" formControlName="phone" placeholder="+20 123 456-7890"></ion-input>
+    </ion-item>
+    <div *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched" class="error-message">
+      Phone number is required
+    </div>
+  
+    <ion-item lines="none">
+      <ion-label position="floating">Years of Experience</ion-label>
+      <ion-input type="number" formControlName="experienceYears"></ion-input>
+    </ion-item>
+    <div *ngIf="form.get('experienceYears')?.hasError('required') && form.get('experienceYears')?.touched" class="error-message">
+      Years of experience is required
+    </div>
+  
+    <ion-item lines="none">
+      <ion-label position="floating">Choose Experience Level</ion-label>
+      <ion-select formControlName="level">
+        <ion-select-option value="junior">Junior</ion-select-option>
+        <ion-select-option value="mid">Mid</ion-select-option>
+        <ion-select-option value="senior">Senior</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <div *ngIf="form.get('level')?.hasError('required') && form.get('level')?.touched" class="error-message">
+      Experience level is required
+    </div>
+  
+    <ion-item lines="none">
+      <ion-label position="floating">Address</ion-label>
+      <ion-input type="text" formControlName="address"></ion-input>
+    </ion-item>
+    <div *ngIf="form.get('address')?.hasError('required') && form.get('address')?.touched" class="error-message">
+      Address is required
+    </div>
+  
+    <ion-item lines="none">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password">
+        <ion-icon name="eye-outline" slot="end"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <div *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched" class="error-message">
+      Password is required
+    </div>
+  
+    <ion-button expand="block" type="submit">Sign up</ion-button>
+  </form>
+  
+
+  <ion-text>
+    <p>Already have an account? <a routerLink="/login">Sign in</a></p>
+  </ion-text>
+</ion-content>
+

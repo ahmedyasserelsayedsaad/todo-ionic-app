@@ -1,0 +1,73 @@
+
+
+<ion-content *ngIf="todoDET">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-button >
+      <ion-back-button defaultHref="/todos"></ion-back-button>
+    </ion-button>
+         
+  </ion-buttons>
+    <ion-title>Task Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-card>
+    <img [src]="'https://todo.iraqsapp.com/images/' + todoDET.image" alt="Task Image"/>
+    <ion-card-header>
+      <ion-card-title style="color: black; text-transform: capitalize;">{{ todoDET.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p style="color: grey;">{{ todoDET.desc }}</p>
+    </ion-card-content>
+  </ion-card>
+  
+    <ion-item lines="none">
+      <ion-label position="stacked">
+        <h4 style="font-size: 17px;">End Date</h4>
+      </ion-label>
+      <ion-input value="30 june,2023" readonly style="color: gray;font-weight: 500;">
+        <ion-icon name="calendar" slot="end" style="color: #6200ea;font-size: 25px;font-family: cursive;"></ion-icon>
+      </ion-input>
+    </ion-item>
+    
+    <ion-item lines="none">
+      <ion-input value="{{ todoDET.status }}" readonly>
+        <ion-icon name="caret-down-outline" slot="end" style="color: #6200ea;font-size: 25px;font-family: cursive;"></ion-icon>
+      </ion-input>
+    </ion-item>
+    
+    <ion-item lines="none">
+      <ion-icon name="flag-outline" slot="start" style="color: #6200ea;font-size: 25px;font-family: cursive;"></ion-icon>
+      <ion-input value="{{ todoDET.priority }}" readonly>
+        <ion-icon name="caret-down-outline" slot="end" style="color: #6200ea;font-size: 25px;font-family: cursive;">
+        </ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <div class="qr">
+      <qrcode [qrdata]="generateQrData()" [width]="200" [errorCorrectionLevel]="'M'"></qrcode>
+    </div>
+    
+<!--
+    <ion-button expand="block" (click)="startScan()">Start Scan</ion-button>
+
+<div *ngIf="todoDET">
+  <h2>{{ todoDET.title }}</h2>
+  <p>{{ todoDET.desc }}</p>
+  <p>Status: {{ todoDET.status }}</p>
+  <p>Priority: {{ todoDET.priority }}</p>
+</div>    
+-->
+
+
+</ion-content>
+
+<ion-content *ngIf="!todoDET">
+  <ion-spinner></ion-spinner>
+  <p>Loading task details...</p>
+</ion-content>
+

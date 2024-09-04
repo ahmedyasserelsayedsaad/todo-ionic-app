@@ -1,0 +1,41 @@
+<ion-content class="ion-padding">
+
+  <ion-row>
+    <ion-col>
+      <ion-img src="../../assets/img/imag2.jpeg"></ion-img>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+     <h1 style="color: rgb(22, 21, 21);font-weight: bolder;font-family: cursive;">login</h1>
+    </ion-col>
+  </ion-row>
+  <form [formGroup]="form" (ngSubmit)="login()">
+  
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Phone Number</ion-label>
+      <ion-input type="tel" name="phone"  required formControlName="phone"  placeholder="+20 123 456-7890"></ion-input>
+    </ion-item>
+    <div *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched" class="error-message">
+      Phone number is required
+    </div>
+    <ion-item lines="none"> 
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password"  name="password" required formControlName="password" placeholder="your password..">
+        <ion-icon name="eye-outline" slot="end" style="color: rgb(98, 97, 98);font-size: 22px;" ></ion-icon>
+      </ion-input>
+    </ion-item>
+    <div *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched" class="error-message">
+      Password is required
+    </div>
+
+    <ion-button expand="block" type="submit">login</ion-button>
+  </form>
+
+  <ion-text>
+    <p>Don't have any account? <a routerLink="/home">Sign up</a></p>
+  </ion-text>
+</ion-content>
+
+

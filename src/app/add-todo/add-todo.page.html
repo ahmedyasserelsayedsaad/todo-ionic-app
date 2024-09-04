@@ -1,0 +1,55 @@
+<ion-content>
+
+  <ion-toolbar class="ion-margin-bottom">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/todos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add new task</ion-title>
+  </ion-toolbar>
+
+  <div class="add-img-container">
+
+    <ion-button *ngIf="!imgSrc" expand="block" fill="outline" color="tertiary" (click)="takephoto()">
+      <ion-icon name="add-outline"></ion-icon>
+      Add Img
+    </ion-button>
+
+
+    <img *ngIf="imgSrc" [src]="imgSrc" />
+  </div>
+
+  <h6>Task title</h6>
+  <ion-item lines="none">
+
+    <ion-input [(ngModel)]="title" placeholder="Enter title here..."></ion-input>
+  </ion-item>
+  <h6>Task Description</h6>
+  <ion-item lines="none">
+
+    <ion-textarea [(ngModel)]="description" placeholder="Enter description here..."></ion-textarea>
+  </ion-item>
+  <h6>task prlority</h6>
+  <ion-item lines="none" class="prio">
+
+    <ion-select [(ngModel)]="priority" placeholder="Select Priority">
+      <ion-select-option value="high">high</ion-select-option>
+      <ion-select-option value="medium">medium</ion-select-option>
+      <ion-select-option value="low">low</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <h6>Due date</h6>
+  <ion-item lines="none">
+
+    <ion-input [(ngModel)]="dueDate" type="text" format="DD-MM-YYYY" placeholder="Enter due date DD-MM-YYYY">
+      <ion-icon name="calendar-outline" slot="end" style="color: purple;font-size: 22px;"></ion-icon>
+    </ion-input>
+  </ion-item>
+  <h2 style="color: red;">{{imgr}}</h2>
+
+  <ion-button expand="block" color="tertiary" class="add-task-button" (click)="addTask()">
+    Add task
+  </ion-button>
+
+
+
+</ion-content>

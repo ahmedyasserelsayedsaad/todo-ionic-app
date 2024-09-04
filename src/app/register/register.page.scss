@@ -1,0 +1,57 @@
+ion-content {
+    --background: #f8f9fa; 
+  }
+  
+  ion-toolbar {
+    --background: #6200ea; 
+    --color: white; 
+  }
+  
+  ion-img{
+      width: 100%;
+      
+  }
+  
+  ion-title {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  ion-item {
+    --background: rgba(98, 95, 95, 0);
+    border-radius: 8px;
+    border: 2px solid rgba(128, 128, 128, 0.41);
+    margin-bottom: 16px;
+    color: #6a696b;
+  }
+  
+  
+  
+  ion-button {
+    --background: #6200ea;
+    --border-radius: 8px;
+    --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    color: whitesmoke;
+  }
+  
+  ion-text p {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: rgb(125, 122, 122);
+  }
+  
+  a {
+    color: #1b013d; 
+    text-decoration: none;
+  }
+  .error-message {
+    color: red; /* تغيير لون النص إلى الأحمر */
+    font-size: 14px; /* حجم النص */
+    margin: 5px; /* إضافة مسافة علوية */
+    padding: 2px; /* إضافة مساحة داخلية */
+    background-color: #f8d7da; /* خلفية فاتحة */
+    border: 1px solid #f5c6cb; /* إضافة حدود خفيفة */
+    border-radius: 3px; /* تدوير الزوايا قليلاً */
+  }

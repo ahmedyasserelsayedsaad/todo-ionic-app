@@ -1,0 +1,94 @@
+<ion-content *ngIf="todos">
+
+  <ion-toolbar>
+    <ion-title>
+      <h3>logo</h3>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goProfile()">
+        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="logOut()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+
+
+
+  <ion-row>
+    <ion-col size="12" size-sm="12" size-md="12" size-lg="12">
+      <h1>my tasks</h1>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+    <ion-col size="12" size-sm="12" size-md="12" size-lg="12">
+      <div class="chips">
+        <ion-chip [ngClass]="{'active-chip': activeChip === 'All'}" (click)="setActiveChip('All')">All</ion-chip>
+        <ion-chip [ngClass]="{'active-chip': activeChip === 'inprogress'}" (click)="setActiveChip('inprogress')">inprograss</ion-chip>
+        <ion-chip [ngClass]="{'active-chip': activeChip === 'waiting'}" (click)="setActiveChip('waiting')">waiting</ion-chip>
+        <ion-chip [ngClass]="{'active-chip': activeChip === 'finished'}" (click)="setActiveChip('finished')">finished</ion-chip>
+      </div>
+      
+    </ion-col>
+  </ion-row>
+
+
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div>
+    <ion-item lines="none" *ngFor="let todo of todos">
+      <ion-thumbnail slot="start" [routerLink]="['/todo-det', todo._id]">
+        <img [src]="todo.image" />
+      </ion-thumbnail>
+      <ion-label class="item-content">
+        <div class="item-header">
+          <h2>{{todo.title}}</h2>
+
+          <ion-badge>{{todo.status}}</ion-badge>
+        </div>
+        <p>{{todo.desc}}</p>
+        <div class="item-footer">
+          <ion-note><span><ion-icon name="flag-outline"></ion-icon></span>{{todo.priority}} </ion-note>
+          <ion-note>12-11-2023</ion-note>
+        </div>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="action(todo)">
+        <ion-icon name="ellipsis-vertical-outline" class="dots"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </div>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingText="Please wait..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="fab-buttons">
+    <ion-fab-button (click)="addToDO()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="small" style="margin-bottom: 60px;">
+    <ion-fab-button>
+      <ion-icon name="qr-code-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+
+<ion-content *ngIf="!todos">
+  <ion-spinner name="crescent"></ion-spinner>
+  <p>Loading task</p>
+</ion-content>
